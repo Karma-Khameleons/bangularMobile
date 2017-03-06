@@ -2,7 +2,11 @@
 
 var app = angular.module("BangularApp", ['ngRoute']);
 
-app.config(function($routeProvider){
+app.config(function($routeProvider, $httpProvider){
+
+	$httpProvider.defaults.xsrfCookieName = 'csrftoken';
+	$httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+
 	$routeProvider
 	.when("/home", {
 		templateUrl: "partials/home.html",
