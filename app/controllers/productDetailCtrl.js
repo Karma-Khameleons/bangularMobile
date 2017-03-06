@@ -2,5 +2,9 @@
 
 app.controller("productDetail", function($scope, productFactory, $routeParams){
 	$scope.title = 'Product Detail';
-    $scope.product = productFactory.getProduct($routeParams.itemId);
+    productFactory.getProduct($routeParams.itemId)
+    .then((product)=>{
+        $scope.product = product;
+        $scope.$apply();
+    });
 });

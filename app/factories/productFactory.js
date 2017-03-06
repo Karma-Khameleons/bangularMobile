@@ -3,14 +3,12 @@
 app.factory("productFactory", function($http, dbConf){
 	let ProductFactory = {};
 
-    ProductFactory.allProducts = ()=>{
+    ProductFactory.getAllProducts = ()=>{
         // retrieves all products from the database
-        console.log("get all products");
         return new Promise((resolve, reject)=>{
             $http.get(`${dbConf.apiUrl}/products.json`)
             .then((responseObject)=>{
                 let productsCollection = responseObject.data;
-                console.log("productsCollection: ", productsCollection);
                 resolve(productsCollection);
             });
         });
