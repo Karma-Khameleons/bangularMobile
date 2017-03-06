@@ -10,35 +10,39 @@ app.config(function($routeProvider, $httpProvider){
 	$routeProvider
 	.when("/home", {
 		templateUrl: "partials/home.html",
-		controller:
+		controller: "home"
 	})
 	.when("/login",{
 		templateUrl:"partials/login.html",
-		controller:
+		controller: "login"
 	})
 	.when("/register",{
 		templateUrl:"partials/register.html",
-		controller:
+		controller: "register"
 	})
 	.when("/view_order",{
 		templateUrl:"partials/order.html",
-		controller:
+		controller: "order"
 	})
 	.when("/create_payment",{
 		templateUrl:"partials/payment.html",
-		controller:
+		controller: "payment"
 	})
 	.when("/product_detail",{
 		templateUrl:"partials/product-detail.html",
-		controller:
+		controller: "productDetail"
 	})
 	.when("/product_success",{
 		templateUrl:"partials/success-product.html",
-		controller:
+		controller: "productSuccess"
 	})
 	.when("/order_success",{
 		templateUrl:"partials/success-order.html",
-		controller:
+		controller: "orderSuccess"
+	})
+	.when("/logout", {
+		templateUrl: "partials/logout.html",
+		controller: "logout"
 	})
 	.otherwise("/home");
 }).config(function($locationProvider){
