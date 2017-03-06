@@ -6,11 +6,12 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
 	<script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
+	<!-- <base href="/"> -->
 </head>
 
 
 <!--define the app -->
-<body ng-app="">
+<body ng-app="BangularApp">
 	
 	<!--define the view -->
 	<div ng-view></div>
@@ -19,17 +20,33 @@
 
 
 <!-- jquery and bootstrap -->
-	<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
 
 <!-- app & factories -->
 <script type="text/javascript" src="app/app.js"></script>
 <script src="app/values/dbConf.js"></script>
-<script src="app/factories/productFactory.js"></script>
+<script type="text/javascript" src="app/factories/productTypeFactory.js"></script>
+<script type="text/javascript" src="app/factories/productFactory.js"></script>
+<script type="text/javascript" src="app/factories/orderFactory.js"></script>
+<script type="text/javascript" src="app/factories/paymentTypeFactory.js"></script>
+<script type="text/javascript" src="app/factories/lineItemFactory.js"></script>
+<script type="text/javascript" src="app/factories/customerFactory.js"></script>
 
 <!-- controllers -->
 <script src="app/controllers/productDetailCtrl.js"></script>
+
+
+<script type="text/javascript" src="app/controllers/homeCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/loginCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/logoutCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/navbarCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/orderCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/paymentCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/registerCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/orderSuccessCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/productSuccessCtrl.js"></script>
 
 
 </body>
