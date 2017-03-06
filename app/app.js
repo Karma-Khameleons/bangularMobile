@@ -8,7 +8,7 @@ app.config(function($routeProvider, $httpProvider){
 	$httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
 
 	$routeProvider
-	.when("/home", {
+	.when("/", {
 		templateUrl: "partials/home.html",
 		controller: "home"
 	})
@@ -44,7 +44,7 @@ app.config(function($routeProvider, $httpProvider){
 		templateUrl: "partials/logout.html",
 		controller: "logout"
 	})
-	.otherwise("/home");
+	.otherwise("/");
 }).config(function($locationProvider){
-	$locationProvider.html5Mode(true);
+	$locationProvider.html5Mode(false);
 });
