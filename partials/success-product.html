@@ -1,6 +1,8 @@
 <div ng-include="'partials/navbar.html'"></div>
 
 <div class="col-md-8 col-offset-md-2">
-	<h3>Your product has been successfully added to your cart. </h3>
-	<h4>You may continue <a ng-href="/home">shopping </a> or <a ng-href="/view_order"> check out.</a></h4>
+	<div ng-repeat="p in products">
+	<h3>{{p.name}} has been successfully added to your cart. </h3>
+	</div>
+	<h4>You may continue <a href="#!/home">shopping </a> or <a href="#!/view_order"> check out.</a></h4>
 </div>
