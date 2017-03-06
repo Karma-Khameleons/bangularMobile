@@ -28,23 +28,23 @@ app.config(function($routeProvider){
         templateUrl:"partials/product-list.html",
         controller: "productList"
     })
-    .when("/product_detail",{
+    .when("/product_success",{
+        templateUrl:"partials/success-product.html",
+        controller: "productSuccess"
+    })
+    .when("/order_success",{
+        templateUrl:"partials/success-order.html",
+        controller: "orderSuccess"
+    })
+    .when("/logout", {
+        templateUrl: "partials/logout.html",
+        controller: "logout"
+    })
+    .when("/product_detail/:itemId",{
 		templateUrl:"partials/product-detail.html",
 		controller: "productDetail"
 	})
-	.when("/product_success",{
-		templateUrl:"partials/success-product.html",
-		controller: "productSuccess"
-	})
-	.when("/order_success",{
-		templateUrl:"partials/success-order.html",
-		controller: "orderSuccess"
-	})
-	.when("/logout", {
-		templateUrl: "partials/logout.html",
-		controller: "logout"
-	})
-	.otherwise("/");
+    .otherwise("/");
 }).config(function($locationProvider){
 	$locationProvider.html5Mode(false);
 });

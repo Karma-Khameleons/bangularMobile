@@ -8,8 +8,9 @@ app.factory("productFactory", function($http, dbConf){
         console.log("get all products");
         return new Promise((resolve, reject)=>{
             $http.get(`${dbConf.apiUrl}/products.json`)
-            .then((productsCollection)=>{
-                console.log("productsCollection", productsCollection);
+            .then((responseObject)=>{
+                let productsCollection = responseObject.data;
+                console.log("productsCollection: ", productsCollection);
                 resolve(productsCollection);
             });
         });
@@ -20,9 +21,10 @@ app.factory("productFactory", function($http, dbConf){
         console.log("get a single product");  
         return new Promise((resolve, reject)=>{
             $http.get(`${dbConf.apiUrl}/products/${pk}.json`)
-            .then((prod)=>{
-                console.log("prod", prod);
-                resolve(prod);
+            .then((responseObject)=>{
+                let product = responseObject.data;
+                console.log("product: ", product);
+                resolve(product);
             });
         });
     };
@@ -63,13 +65,6 @@ app.factory("productFactory", function($http, dbConf){
             console.log("results:", res);
         });
 
-
-        // return new Promise((resolve, reject)=>{
-        //     $http.put(`${dbConf.apiUrl}/products/${updatedProduct.pk}.json`, angular.toJson(updatedProduct))
-        //     .then((itemObject)=>{
-        //         resolve(itemObject);
-        //     });
-        // });
 
 
     };
