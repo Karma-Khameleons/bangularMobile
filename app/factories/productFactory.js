@@ -58,7 +58,8 @@ app.factory("productFactory", function($http, dbConf){
         // retrieves a specific product from the database, queried via the product's primary key
         console.log("get a single product");  
         return new Promise((resolve, reject)=>{
-            $http.get(`${dbConf.apiUrl}/products/${pk}`)
+            // $http.get(`${dbConf.apiUrl}/products/`)
+            $http.get(`${dbConf.apiUrl}/products/${pk}/`)
             .then((prod)=>{
                 console.log("prod", prod);
                 resolve(prod);
