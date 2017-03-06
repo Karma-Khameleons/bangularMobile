@@ -24,7 +24,11 @@ app.config(function($routeProvider){
 		templateUrl:"partials/payment.html",
 		controller: "payment"
 	})
-	.when("/product_detail",{
+	.when("/product_list",{
+        templateUrl:"partials/product-list.html",
+        controller: "productList"
+    })
+    .when("/product_detail",{
 		templateUrl:"partials/product-detail.html",
 		controller: "productDetail"
 	})
