@@ -16,12 +16,10 @@ app.factory("productFactory", function($http, dbConf){
 
     ProductFactory.getProduct = (pk)=>{
         // retrieves a specific product from the database, queried via the product's primary key
-        console.log("get a single product");  
         return new Promise((resolve, reject)=>{
             $http.get(`${dbConf.apiUrl}/products/${pk}.json`)
             .then((responseObject)=>{
                 let product = responseObject.data;
-                console.log("product: ", product);
                 resolve(product);
             });
         });
