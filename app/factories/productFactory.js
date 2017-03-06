@@ -7,14 +7,8 @@ app.factory("productFactory", function($http, dbConf){
         // retrieves all products from the database
         console.log("get all products");
         return new Promise((resolve, reject)=>{
-            $http.get(`${dbConf.apiUrl}/products/`)
+            $http.get(`${dbConf.apiUrl}/products.json`)
             .then((productsCollection)=>{
-
-                // commented out because I don't think this will be necessary when using the API
-                // Object.keys(productsCollection).forEach((key)=>{
-                //     productsCollection[key].id = key;
-                // });
-
                 console.log("productsCollection", productsCollection);
                 resolve(productsCollection);
             });
@@ -25,7 +19,7 @@ app.factory("productFactory", function($http, dbConf){
         // retrieves a specific product from the database, queried via the product's primary key
         console.log("get a single product");  
         return new Promise((resolve, reject)=>{
-            $http.get(`${dbConf.apiUrl}/products/${pk}/`)
+            $http.get(`${dbConf.apiUrl}/products/${pk}.json`)
             .then((prod)=>{
                 console.log("prod", prod);
                 resolve(prod);
@@ -36,27 +30,48 @@ app.factory("productFactory", function($http, dbConf){
     ProductFactory.createProduct = (newProduct)=>{
         // saves a new product to the database
         console.log("create a product");
-        return new Promise((resolve, reject)=>{
-            $http.post(
-                `${dbConf.apiUrl}/products/`, 
-                angular.toJson(newProduct)
-            )
-            .then((itemObject)=>{
-                resolve(itemObject);
-            });
+
+        $http({
+            url: `${dbConf.apiUrl}/create_product.json`,
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            data: newProduct
+        })
+        .then(res => {
+            console.log("results:", res);
         });
     };
+
+
 
     ProductFactory.updateProduct = (updatedProduct)=>{
         // saves changes to an existing product in the database
         // accepts a product object and uses its pk attribute to target the updated product in the database
         console.log("update product");
-        return new Promise((resolve, reject)=>{
-            $http.put(`${dbConf.apiUrl}/products/${updatedProduct.pk}`, angular.toJson(updatedProduct))
-            .then((itemObject)=>{
-                resolve(itemObject);
-            });
+
+        $http({
+            url: `${dbConf.apiUrl}/products/${updatedProduct.pk}.json`,
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            data: updatedProduct
+        })
+        .then(res => {
+            console.log("results:", res);
         });
+
+
+        // return new Promise((resolve, reject)=>{
+        //     $http.put(`${dbConf.apiUrl}/products/${updatedProduct.pk}.json`, angular.toJson(updatedProduct))
+        //     .then((itemObject)=>{
+        //         resolve(itemObject);
+        //     });
+        // });
+
+
     };
 
 
