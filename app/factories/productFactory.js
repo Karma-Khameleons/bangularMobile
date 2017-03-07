@@ -3,18 +3,8 @@
 app.factory("productFactory", function($http, RootFactory){
     let ProductFactory = {};
 
-    // let getRoot = ()=>{
-    //     RootFactory.getApiRoot()
-    //         .then((apiRoot) => {
-    //             console.log("apiRoot: ", apiRoot);
-    //             return apiRoot;
-    //             // api = apiRoot;
-    //         });
-    // };
-
-
     ProductFactory.getAllProducts = ()=>{
-        // retrieves all products from the database
+        // returns all products from the database via the API Root
         return new Promise((resolve, reject)=>{
             RootFactory.getApiRoot()
             .then((apiRoot)=>{
@@ -22,9 +12,6 @@ app.factory("productFactory", function($http, RootFactory){
                 $http({
                     url: `${apiRoot.products}`,
                     method: "GET"
-                    // headers: {
-                    //     "Content-Type": "application/x-www-form-urlencoded"
-                    // }
                 })
                 .then(res => {
                     console.log("results:", res);
@@ -32,7 +19,6 @@ app.factory("productFactory", function($http, RootFactory){
                 });
             });
         });
-
     };
 
 
