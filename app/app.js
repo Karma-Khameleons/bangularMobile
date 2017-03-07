@@ -45,3 +45,4 @@ app.config(function($routeProvider){
 }).config(function($locationProvider){
 	$locationProvider.html5Mode(false);
 });
+
