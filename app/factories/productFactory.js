@@ -1,7 +1,7 @@
 "use strict";
 
-app.factory("productFactory", function($http){
-	
+app.factory("productFactory", function(){
+
 
 	let get_all_products = ()=>{
 		return new Promise((resolve, reject)=>{
