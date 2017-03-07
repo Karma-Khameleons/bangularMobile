@@ -2,4 +2,5 @@
 
 app.factory("productFactory", function(){
 
+
 });
