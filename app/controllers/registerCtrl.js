@@ -15,6 +15,7 @@ app.controller("register", function($scope, $location, $http){
 	};
 
 	 $scope.register = function() {
+
       $http({
         url: "http://localhost:8000/register/",
         method: "POST",
