@@ -39,7 +39,7 @@ app.controller("register", function($scope, $location, $http){
         if (res.data.success === true) {
             $location.path('/');
         } else {
-            console.log("error", error );
+            console.log("error");
         }
       });
   };

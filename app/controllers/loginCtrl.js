@@ -21,10 +21,10 @@ $scope.user = {
         }
       }).then(res => {
         if (res.data.success === true) {
-            console.log(res)
+            console.log(res);
             $location.path('/');
         } else {
-           console.log("error", error );
+           console.log("error");
         }
       });
   };
