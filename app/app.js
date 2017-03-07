@@ -3,7 +3,12 @@
 var app = angular.module("BangularApp", ['ngRoute'])
             .constant('apiUrl', "http://localhost:8000");
 
-app.config(function($routeProvider){
+app.config(function($routeProvider, $httpProvider){
+
+	$httpProvider.defaults.xsrfCookieName = 'csrftoken';
+	$httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+	$httpProvider.defaults.withCredentials = true;
+
 	$routeProvider
 	.when("/", {
 		templateUrl: "partials/home.html",
