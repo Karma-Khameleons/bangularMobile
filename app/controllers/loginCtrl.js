@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("login", function($scope){
+app.controller("login", function($scope,$location, $http){
 
 $scope.user = {
 	username: '',
@@ -9,8 +9,9 @@ $scope.user = {
 
   $scope.login = function() {
       $http({
-        url: "/login",
+        url: "http://localhost:8000/login/",
         method: "POST",
+        withCredentials: false,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -23,7 +24,7 @@ $scope.user = {
             console.log(res)
             $location.path('/');
         } else {
-            // Show dialog element telling user that registration failed
+           console.log("error", error );
         }
       });
   };
