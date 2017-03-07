@@ -1,6 +1,7 @@
 "use strict";
 
-var app = angular.module("BangularApp", ['ngRoute']);
+var app = angular.module("BangularApp", ['ngRoute'])
+            .constant('apiUrl', "http://localhost:8000");
 
 app.config(function($routeProvider){
 	$routeProvider

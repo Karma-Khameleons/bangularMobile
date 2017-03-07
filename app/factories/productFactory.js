@@ -1,7 +1,7 @@
 "use strict";
 
 app.factory("productFactory", function($http, dbConf){
-	let ProductFactory = {};
+    let ProductFactory = {};
 
     ProductFactory.getAllProducts = ()=>{
         // retrieves all products from the database
@@ -64,8 +64,5 @@ app.factory("productFactory", function($http, dbConf){
 
 
     };
-
-
     return ProductFactory;
-
 });
