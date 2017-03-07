@@ -7,7 +7,11 @@ app.controller("register", function($scope, $location, $http){
 	  password: "",
 	  email: "",
 	  first_name: "",
-	  last_name: ""
+	  last_name: "",
+    street_address: "",
+    city: "",
+    state: "",
+    zip_code: ""
 	};
 
 	 $scope.register = function() {
@@ -24,7 +28,11 @@ app.controller("register", function($scope, $location, $http){
           "password": $scope.user.password,
           "email": $scope.user.email,
           "first_name": $scope.user.first_name,
-          "last_name": $scope.user.last_name
+          "last_name": $scope.user.last_name,
+          "street_address": $scope.user.street_address,
+          "city": $scope.user.city,
+          "state": $scope.user.state,
+          "zip_code": $scope.user.zip_code
         }
       }).then(res => {
         if (res.data.success === true) {
