@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("lineItemFactory", function(){
+app.factory("lineItemFactory", function($http){
 	
 
 });
