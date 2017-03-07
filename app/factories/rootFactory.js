@@ -8,8 +8,8 @@ app.factory("RootFactory", [
 
     return {
       getApiRoot () {
-        return httpGet.then(res => res.data)
+        return httpGet.then(res => res.data);
       }
-    }
+    };
   }
 ]);
