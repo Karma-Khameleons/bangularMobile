@@ -1,5 +1,6 @@
 "use strict";
 
+// provides getApiRoot() method which returns the API root so that ajax calls may be made based off that root
 app.factory("RootFactory", [
   "$http",
   "apiUrl",
