@@ -1,32 +1,39 @@
 "use strict";
 
-app.factory("productFactory", function($http, $window, RootFactory){
-	
-	//Call getApiRoot from the RootFactory
+app.factory("productFactory", function($http, RootFactory){
+    let ProductFactory = {};
 
-	let getProducts = () => {
+    ProductFactory.getAllProducts = ()=>{
+        // returns all products from the database via the API Root
+        return new Promise((resolve, reject)=>{
+            RootFactory.getApiRoot()
+            .then((apiRoot)=>{
+                $http({
+                    url: `${apiRoot.products}`,
+                    method: "GET"
+                })
+                .then(res => {
+                    resolve(res.data);
+                });
+            });
+        });
+    };
 
-		let items = [];
+    ProductFactory.getProduct = (pk)=>{
+        // retrieves a specific product from the database, queried via the product's primary key through the API Root
+        return new Promise((resolve, reject)=>{
+            RootFactory.getApiRoot()
+            .then((apiRoot)=>{
+                $http({
+                    url: `${apiRoot.products}${pk}/`,
+                    method: "GET"
+                })
+                .then(res => {
+                    resolve(res.data);
+                });
+            });
+        });
+    };
 
-		return new Promise((resolve, reject) => {
-			$http.get(`http://localhost:8000/products/`)
-			.then((itemObject) => {
-				let itemCollection = itemObject.data;			
-				console.log(itemCollection);
-
-				// Object.keys(itemCollection).forEach((key) =>{
-				// 	itemCollection[key].id = key;
-				// 	items.push(itemCollection[key]);
-				// });
-				resolve(items);
-			})
-			.catch((error) => {
-				reject(error);
-			});
-		});
-	};
-
-	return {getProducts};
-
+    return ProductFactory;
 });
-
