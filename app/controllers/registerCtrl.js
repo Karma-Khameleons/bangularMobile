@@ -14,8 +14,10 @@ app.controller("register", function($scope, $location, $http){
       $http({
         url: "http://localhost:8000/register/",
         method: "POST",
+        withCredentials: false,
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
+          "Content-Type": "application/x-www-form-urlencoded",
+
         },
         data: {
           "username": $scope.user.username,
