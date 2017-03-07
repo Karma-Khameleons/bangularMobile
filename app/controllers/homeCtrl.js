@@ -3,7 +3,7 @@
 app.controller("home", function($scope, productFactory){
 	/* 
 		Author: Abby
-		Purpose: Display 20 products on the home page
+		Purpose: Search and display products on the home page
 		Factory: productFactory.js
 	*/
 
@@ -13,7 +13,7 @@ app.controller("home", function($scope, productFactory){
 			{
  			   "seller": "Suzy",
  			   "product_type": "School Supplies",
- 			   "name": "Leftie Scissor",
+ 			   "name": "Blah Scissor",
  			   "description": "For the Lefties",
  			   "price": 2.99,
  			   "quantity": 1
@@ -21,7 +21,7 @@ app.controller("home", function($scope, productFactory){
 			{
  			   "seller": "Suzy",
  			   "product_type": "School Supplies",
- 			   "name": "Leftie Scissor",
+ 			   "name": "Righty Scissor",
  			   "description": "For the Lefties",
  			   "price": 2.99,
  			   "quantity": 1
@@ -29,7 +29,7 @@ app.controller("home", function($scope, productFactory){
 			{
  			   "seller": "Suzy",
  			   "product_type": "School Supplies",
- 			   "name": "Leftie Scissor",
+ 			   "name": "No Scissor",
  			   "description": "For the Lefties",
  			   "price": 2.99,
  			   "quantity": 1

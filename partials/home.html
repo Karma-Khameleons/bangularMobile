@@ -1,31 +1,29 @@
 <div ng-include="'partials/navbar.html'"></div>
 
-<h1>{{title}}</h1>
+<div class="col-md-8 col-md-offset-2">
 
-<div ng-init="friends = [{name:'John', phone:'555-1276'},
-                         {name:'Mary', phone:'800-BIG-MARY'},
-                         {name:'Mike', phone:'555-4321'},
-                         {name:'Adam', phone:'555-5678'},
-                         {name:'Julie', phone:'555-8765'},
-                         {name:'Juliette', phone:'555-5678'}]"></div>
+  <!-- SEARCH BAR -->
+  <div id="custom-search-input">
+      <div class="input-group col-md-12">
+          <input ng-model="search.$" type="text" class="form-control input-lg" placeholder="Search" />
+          <span class="input-group-btn">
+              <button class="btn btn-info btn-lg" type="button">
+                  <i class="glyphicon glyphicon-search"></i>
+              </button>
+          </span>
+      </div>
+  </div>
 
-
-<label>Any: <input ng-model="search.$"></label> <br>
-<table id="searchObjResults">
-  <tr><th>Name</th><th>Phone</th></tr>
-  <tr ng-repeat="friendObj in friends | filter:search:strict">
-    <td>{{friendObj.name}}</td>
-    <td>{{friendObj.phone}}</td>
-  </tr>
-</table>
+  <!-- SEARCH RESULTS / LISTING -->
+  <table id="searchObjResults">
+    <tr ng-repeat="item in products | filter:search">
+      <td>
+        <div class="list-group">
+        <a href="{{item.url}}"><h4 class="list-group-item-heading">{{item.name}} - ${{item.price}}</h4></a>
+        <p class="list-group-item-text"><em>{{item.description}}</em></p>
+        </div>
+      </td>
+    </tr>
+  </table>
 	
-
-
-
-	<div class="list-group" ng-repeat="item in products">
- 		<a href="{{item.url}}"><h4 class="list-group-item-heading">{{item.name}} - ${{item.price}}</h4></a>
-   		<p class="list-group-item-text"><em>{{item.description}}</em></p>
-	</div>
-
-
-
+</div>
