@@ -7,43 +7,12 @@ app.controller("home", function($scope, productFactory){
 		Factory: productFactory.js
 	*/
 
-	$scope.title = "Bangazon";
-
-	let data = [
-			{
- 			   "seller": "Suzy",
- 			   "product_type": "School Supplies",
- 			   "name": "Blah Scissor",
- 			   "description": "For the Lefties",
- 			   "price": 2.99,
- 			   "quantity": 1
-			},
-			{
- 			   "seller": "Suzy",
- 			   "product_type": "School Supplies",
- 			   "name": "Righty Scissor",
- 			   "description": "For the Lefties",
- 			   "price": 2.99,
- 			   "quantity": 1
-			},
-			{
- 			   "seller": "Suzy",
- 			   "product_type": "School Supplies",
- 			   "name": "No Scissor",
- 			   "description": "For the Lefties",
- 			   "price": 2.99,
- 			   "quantity": 1
-			}
-		];
-
-	$scope.products = data;
-
-	// Immediately call the factory to return products. 
-	// Set the scope to the array being returned from the factory
-	// productFactory.getProducts()
-	// 	.then( (itemArray) => {
-	// 		$scope.products = itemArray;
-	// 		$scope.$apply();
-	// 	}); 
+	//Immediately call the factory to return products. 
+	//Set the scope to the array being returned from the factory
+	productFactory.getAllProducts()
+		.then( (itemArray) => {
+			$scope.products = itemArray;
+			$scope.$apply();
+		}); 
 
 });
