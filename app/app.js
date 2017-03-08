@@ -54,3 +54,4 @@ app.config(function($routeProvider, $httpProvider){
 }).config(function($locationProvider){
 	$locationProvider.html5Mode(false);
 });
+
